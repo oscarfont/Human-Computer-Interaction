@@ -17,7 +17,7 @@ void setup()
   sensor.start();
   orientation(PORTRAIT);
   textAlign(CENTER, CENTER);
-  textSize(displayDensity * 36);
+  textSize(36);
 }
 
 void draw(){
