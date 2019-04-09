@@ -1,43 +1,65 @@
 import ketai.sensors.*;
 
 KetaiSensor sensor;
-float velocidad=0;
-float vx=0;
-float vy=0;
-float vz=0;
 
-float ax=0;
-float ay=0;
-float az=0;
+
+float halt=0;
+
+String mode="screen3";
+String time = "10";
+int t;
+int interval = 50;
 
 void setup()
 {
   fullScreen();  
   sensor = new KetaiSensor(this);
   sensor.start();
-  orientation(LANDSCAPE);
+  orientation(PORTRAIT);
   textAlign(CENTER, CENTER);
   textSize(displayDensity * 36);
 }
 
 void draw(){
-  background(78, 93, 75);
-  text("Velocidad: " + nfp(velocidad, 1, 3), 0, 0, width, height);
+  
+  switch(mode){
+    case "screen1":
+      screen1();
+    case "screen2":
+      screen2();
+    case "screen3":
+      screen3();
+    case "screen4":
+      screen4();
+  }
 }
 
 
-void onAccelerometerEvent(float x, float y, float z, long a, int b){
+void screen1(){
+}
+
+void screen2(){
+}
+
+void screen3(){ //Timer
+  background(78, 93, 75);
   
-  vx= x + ax;
-  vy= y + ay;
-  vz= z + az;
+  t = interval-int(millis()/1000);
+  time = nf(t , 2);
   
-  ax=x;
-  ay=y;
-  az=z;
-  
-  velocidad=sqrt(sq(vx)+sq(vy)+sq(vz)); 
-  
-  //Mai es 0 perque sempre suma a x, y o z (depen de com estigui el telefon), 
-  //9.7 que es laceleracio de la gravetat. No se si al final podriem afegir -19 que es el que hi ha quan esta parat
+  if(t == 0){
+    mode="screen4";
+  }
+  text("0:"+time,0, 0, width, height);
+}
+
+
+void screen4(){ //Calling
+
+}
+
+
+
+void onAccelerometerEvent(float x, float y, float z){
+  halt=x+y+z;
 }
