@@ -40,7 +40,6 @@ void setup()
    fullScreen();
    //fullScreen();
    
-   manager = new AccelerometerManager();
    sensor = new KetaiSensor(this);
    sensor.start();
    requestPermission("android.permission.CALL_PHONE");
@@ -143,7 +142,6 @@ void screen3(){
   // If user clicks button, change to screen 2
   if(okay_button.isClicked()){
     mode = "screen5";
-    interval=50;
   }
 }
 
@@ -168,6 +166,7 @@ void screen4(){
 
 // Okay Screen
 void screen5(){
+  println("entra");
   background(59, 129, 250);
   ok_icon = loadImage("ok.png");
   showImage();
