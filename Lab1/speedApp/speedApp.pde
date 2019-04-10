@@ -28,19 +28,18 @@ int initialTime;
 KetaiSensor sensor;
 float halt=0;
 //ESTAMOS UTILIZANDO ESTO PARA MOSTRAR LAS DIF VIEWS 
-String mode = "screen1";
+String mode;
 String time = "10";
 int t;
-int interval = 0;
-AccelerometerManager manager;
+int interval = 50;
 
 // Processing methods: setup and draw
 void setup()
 {
-   mode = "screen3";
+   mode = "screen1";
    fullScreen();
    //fullScreen();
-   initialTime = millis();
+   
    manager = new AccelerometerManager();
    sensor = new KetaiSensor(this);
    sensor.start();
@@ -49,7 +48,6 @@ void setup()
 }
 
 void draw(){
-  
   switch(mode){
     case "screen1":
       screen1();
@@ -58,7 +56,6 @@ void draw(){
       screen2();
       break;
     case "screen3":
-      interval=50;
       screen3();
       break;
     case "screen4":
@@ -97,6 +94,7 @@ void screen1(){
   showImage();
   if(start_button.isClicked()){
     mode = "screen2";
+    initialTime = int(millis()/1000);
   }
 }
 
@@ -119,13 +117,7 @@ void screen3(){
   textSize(48);
   textAlign(CENTER, CENTER);
 
-  
-  // restart Accelerometer
-  manager.restart();
-  halt = 0.0;
-
-  
-  t = interval-int(millis()/1000);
+  t = interval-(int(millis()/1000)-initialTime);
   time = nf(t , 2);
   
   // If timer ends, change to screen 4
@@ -145,13 +137,13 @@ void screen3(){
   }
   text("0:"+time,0, 0, width, height);
   
-  
   okay_button = new Button("Estoy bien", 150, 500, 200, 70);
   okay_button.buttonDraw();
   
   // If user clicks button, change to screen 2
   if(okay_button.isClicked()){
     mode = "screen5";
+    interval=50;
   }
 }
 
@@ -184,7 +176,7 @@ void screen5(){
   textSize(20);
   text("Reestablecido correctamente",270,500);
   delay(10000);
-  mode = "screen2";
+  mode = "screen1";
 }
 
 // make phone call
