@@ -95,9 +95,7 @@ void showImage(){
   }else if(mode.equals("screen5")){
     image(ok_icon,(width/2)-250,(height/2)-400,500,500);
   }
-}
-
-// Start Screen
+}//Start Screen
 void screen1(){ 
   sound.stop();
   smooth();
@@ -119,13 +117,12 @@ void screen2(){
   background(59, 129, 250);
   arrow_icon = loadImage("arrow.png");
   showImage();
-  text("Velocidad: " + nfp(halt, 1, 3), 0, 100, width, height);
+  text("Halt en 20 y + +\n"+ nfp(halt, 1, 3), 0, 100, width, height);
   fill(#FFFFFF);
   // TODO: Determine the way we change from screen2 to screen3
   if(halt>=20.0 || halt <=-20.0){
     mode = "screen3";
     sound.play();
-    
   }
 }
 
@@ -191,22 +188,21 @@ void screen5(){
   
   t = interval2-(int(millis()/1000)-initialTime);
   time = nf(t , 2);
-  // If timer ends, change to screen 4
+  // If timer ends, change to screen 1
   if(t == 0){
     mode = "screen1";
   }
   
   sound.stop();
   vibe.stop();
-  println("entra");
+
   background(59, 129, 250);
   ok_icon = loadImage("ok.png");
   showImage();
+  textSize(60);
   textAlign(CENTER, CENTER);
   fill(255);
-  textSize(20);
-  text("Reestablecido correctamente",270,500);
-  mode = "screen1";
+  text("Reestablecido correctamente", 0, 100, width, height);
 }
 
 // make phone call
