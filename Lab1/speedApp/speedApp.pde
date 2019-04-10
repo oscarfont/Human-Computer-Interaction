@@ -16,7 +16,6 @@ PImage arrow_icon;
 PImage ok_icon;
 
 int initialTime;
-int m;
 
 KetaiSensor sensor;
 float halt=0;
@@ -24,20 +23,21 @@ float halt=0;
 String mode = "screen1";
 String time = "10";
 int t;
-int interval = 50;
+int interval = 0;
 AccelerometerManager manager;
 
 // Processing methods: setup and draw
 void setup()
 {
-   mode = "screen1";
-   size (500, 700);
+   mode = "screen3";
+   fullScreen();
    //fullScreen();
    initialTime = millis();
    manager = new AccelerometerManager();
    sensor = new KetaiSensor(this);
    sensor.start();
    requestPermission("android.permission.CALL_PHONE");
+   orientation(PORTRAIT);
 }
 
 void draw(){
@@ -50,8 +50,8 @@ void draw(){
       screen2();
       break;
     case "screen3":
+      interval=50;
       screen3();
-      m = millis();
       break;
     case "screen4":
       screen4();
@@ -105,19 +105,18 @@ void screen2(){
 
 // Timer Screen
 void screen3(){ 
-  orientation(PORTRAIT);
   fill(255);
   textSize(48);
   textAlign(CENTER, CENTER);
-  background(252,83,86);
+  
+  
+ 
+  
+  
   // restart Accelerometer
   manager.restart();
   halt = 0.0;
-  if(initialTime+150 < m ){
-    background(255);
-    initialTime = millis();
-  }
-  
+
   
   t = interval-int(millis()/1000);
   time = nf(t , 2);
@@ -129,6 +128,16 @@ void screen3(){
     }
     mode="screen4";
   }
+  
+  if(t%2 == 0){
+     background(252,83,86);
+     fill(#FFFFFF);
+  }else{
+     background(255,255,255);
+     fill(#000000);
+  }
+  
+  
   text("0:"+time,0, 0, width, height);
   okay_button = new Button("Estoy bien", 150, 500, 200, 70);
   okay_button.buttonDraw();
