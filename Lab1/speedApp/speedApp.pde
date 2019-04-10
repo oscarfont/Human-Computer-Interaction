@@ -132,7 +132,7 @@ void screen3(){
   textSize(48);
   textAlign(CENTER, CENTER);
   
-  vibe.vibrate(1000);
+  vibe.vibrate(100);
 
 
   t = interval-(int(millis()/1000)-initialTime);
@@ -171,10 +171,10 @@ void screen4(){
   textAlign(CENTER, CENTER);
   fill(255);
   text("Llamando al 112...", width/2,height/2);
-  // TODO: Send Location
-  String msg = "ESTO ES UN SMS DE PRUEBA, CALMA ;) Latitude: " + latitude + " Longitude: " + longitude + " Altitude: " + altitude;
-  String numero = "0";
-  //sendSMS(numero,msg);
+  // Send Location
+  String msg = "He tenido un accidente en la siguiente ubicación -> Latitude: " + latitude + " Longitude: " + longitude + " Altitude: " + altitude;
+  String numero = "112";
+  sendSMS(numero,msg);
   end_button = new Button("Finalizar Llamada", (width/2)-290, (height/2)+150, 600, 200);
   end_button.buttonDraw();
   // If user clicks, ends call and goes to screen1
@@ -202,7 +202,7 @@ void screen5(){
   textSize(60);
   textAlign(CENTER, CENTER);
   fill(255);
-  text("Reestablecido correctamente", 0, 100, width, height);
+  text("Reestablecido correctamente", 0, 150, width, height);
 }
 
 // make phone call
