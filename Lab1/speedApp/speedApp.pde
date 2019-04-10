@@ -37,6 +37,7 @@ String mode;
 String time = "10";
 int t;
 int interval = 50;
+int interval2=5;
 
 // Geolocation
 double longitude, latitude, altitude;
@@ -160,6 +161,7 @@ void screen3(){
   
   // If user clicks button, change to screen 2
   if(okay_button.isClicked()){
+    initialTime=int(millis()/1000);
     mode = "screen5";
   }
 }
@@ -186,6 +188,14 @@ void screen4(){
 
 // Okay Screen
 void screen5(){
+  
+  t = interval2-(int(millis()/1000)-initialTime);
+  time = nf(t , 2);
+  // If timer ends, change to screen 4
+  if(t == 0){
+    mode = "screen1";
+  }
+  
   sound.stop();
   vibe.stop();
   println("entra");
