@@ -1,5 +1,6 @@
 // Libraries
 import ketai.sensors.*;
+import ketai.ui.*;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.media.*;
 import android.content.res.*;
 import android.content.Context;
 import android.telephony.SmsManager;
+import processing.sound.*;
  
 //MediaPlayer snd = new MediaPlayer();
 //AssetManager assets = this.getAssets();
@@ -20,9 +22,11 @@ Button end_button;
 boolean start_buttonOver = false;
 boolean alarm_buttonOver = false;
 boolean start_image = true;
+boolean message_sent = false; // FLAG para controlar que solo se envie un mensaje
 PImage car_icon;
 PImage arrow_icon;
 PImage ok_icon;
+SoundFile sound;
 
 int initialTime;
 
@@ -37,23 +41,26 @@ int interval = 50;
 // Geolocation
 double longitude, latitude, altitude;
 KetaiLocation location;
+KetaiVibrate vibe;
 
 // Processing methods: setup and draw
 void setup()
 {
    mode = "screen1";
    fullScreen();
+   sound = new SoundFile(this, "test.mp3");
    sensor = new KetaiSensor(this);
    location = new KetaiLocation(this);
+   vibe = new KetaiVibrate(this);
    sensor.start();
    requestPermission("android.permission.CALL_PHONE");
    requestPermission("android.permission.ACCESS_FINE_LOCATION");
    requestPermission("android.permission.SEND_SMS");
+   requestPermission("android.permission.VIBRATE");
    orientation(PORTRAIT);
 }
 
 void draw(){
-  printLocation();
   switch(mode){
     case "screen1":
       screen1();
@@ -91,6 +98,7 @@ void showImage(){
 
 // Start Screen
 void screen1(){ 
+  sound.stop();
   smooth();
   background(59, 129, 250);
   start_button = new Button("Empezar marcha", (width/2)-290, (height/2)+150, 600, 200);
@@ -106,6 +114,7 @@ void screen1(){
 
 // Speed Screen
 void screen2(){
+  sound.stop();
   background(59, 129, 250);
   arrow_icon = loadImage("arrow.png");
   showImage();
@@ -114,6 +123,8 @@ void screen2(){
   // TODO: Determine the way we change from screen2 to screen3
   if(halt>=20.0 || halt <=-20.0){
     mode = "screen3";
+    sound.play();
+    vibe.vibrate(5000);
   }
 }
 
@@ -123,9 +134,9 @@ void screen3(){
   textSize(48);
   textAlign(CENTER, CENTER);
 
+
   t = interval-(int(millis()/1000)-initialTime);
   time = nf(t , 2);
-  
   // If timer ends, change to screen 4
   if(t == 0){
     mode="screen4";
@@ -153,6 +164,7 @@ void screen3(){
 
 // Phone Call Screen
 void screen4(){
+  sound.stop();
   background(252,83,86);
   textSize(60);
   textAlign(CENTER, CENTER);
@@ -160,8 +172,8 @@ void screen4(){
   text("Llamando al 112...", width/2,height/2);
   // TODO: Send Location
   String msg = "ESTO ES UN SMS DE PRUEBA, CALMA ;) Latitude: " + latitude + " Longitude: " + longitude + " Altitude: " + altitude;
-  String numero = "638173933";
-  sendSMS(numero,msg);
+  String numero = "0";
+  //sendSMS(numero,msg);
   end_button = new Button("Finalizar Llamada", (width/2)-290, (height/2)+150, 600, 200);
   end_button.buttonDraw();
   // If user clicks, ends call and goes to screen1
@@ -172,6 +184,7 @@ void screen4(){
 
 // Okay Screen
 void screen5(){
+  sound.stop();
   println("entra");
   background(59, 129, 250);
   ok_icon = loadImage("ok.png");
@@ -180,7 +193,6 @@ void screen5(){
   fill(255);
   textSize(20);
   text("Reestablecido correctamente",270,500);
-  //delay(1000);
   mode = "screen1";
 }
 
@@ -195,7 +207,7 @@ void makeCall(){
 
 // send SMS
 public void sendSMS(String phoneNo, String msg) {
-  if(hasPermission("android.permission.SEND_SMS")){
+  if(hasPermission("android.permission.SEND_SMS") && message_sent == true){
     try {      
         SmsManager smsManager = SmsManager.getDefault();
         smsManager.sendTextMessage(phoneNo, null, msg, null, null);    
