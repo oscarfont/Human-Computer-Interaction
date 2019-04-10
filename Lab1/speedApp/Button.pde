@@ -1,5 +1,3 @@
-
-
 class Button {
   String label; // button label
   float x;      // top left corner x position
@@ -18,7 +16,7 @@ class Button {
   }
   
   void buttonDraw() {
-     stroke(255);
+    stroke(255);
     fill(255);    
     rect(x, y, w, h, 10);
     textAlign(CENTER, CENTER);
@@ -27,5 +25,12 @@ class Button {
     text(label, x + (w / 2), y + (h / 2));
     
   }
-
+  
+  boolean isClicked(){
+    if(mousePressed && mouseX>x && mouseX <x+w && mouseY>y && mouseY <y+h){
+      return true;
+    }else{
+      return false;
+    }
+  }
 }
