@@ -124,7 +124,7 @@ void screen2(){
   if(halt>=20.0 || halt <=-20.0){
     mode = "screen3";
     sound.play();
-    vibe.vibrate(5000);
+    
   }
 }
 
@@ -133,6 +133,8 @@ void screen3(){
   fill(255);
   textSize(48);
   textAlign(CENTER, CENTER);
+  
+  vibe.vibrate(1000);
 
 
   t = interval-(int(millis()/1000)-initialTime);
@@ -185,6 +187,7 @@ void screen4(){
 // Okay Screen
 void screen5(){
   sound.stop();
+  vibe.stop();
   println("entra");
   background(59, 129, 250);
   ok_icon = loadImage("ok.png");
