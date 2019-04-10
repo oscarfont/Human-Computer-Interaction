@@ -117,7 +117,7 @@ void screen2(){
   background(59, 129, 250);
   arrow_icon = loadImage("arrow.png");
   showImage();
-  text("Halt en 20 y + +\n"+ nfp(halt, 1, 3), 0, 100, width, height);
+  text("Halt entre -20 y +20:" +"\n"+ nfp(halt, 1, 3), 0, 100, width, height);
   fill(#FFFFFF);
   // TODO: Determine the way we change from screen2 to screen3
   if(halt>=20.0 || halt <=-20.0){
