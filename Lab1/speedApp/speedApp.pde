@@ -3,7 +3,15 @@ import ketai.sensors.*;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-
+import android.media.*;
+import android.content.res.*;
+import android.content.Context;
+ 
+MediaPlayer snd = new MediaPlayer();
+//AssetManager assets = this.getAssets();
+AssetFileDescriptor fd;
+Context context;
+Button bPlay;
 // Variables
 Button start_button;  // the button
 Button okay_button;
@@ -100,7 +108,9 @@ void screen2(){
   text("Velocidad: " + nfp(halt, 1, 3), 0, 100, width, height);
   fill(#FFFFFF);
   // TODO: Determine the way we change from screen2 to screen3
-  if(halt>=20.0){mode = "screen3";}
+  if(halt>=20.0 || halt <=-20.0){
+    mode = "screen3";
+  }
 }
 
 // Timer Screen
@@ -108,10 +118,7 @@ void screen3(){
   fill(255);
   textSize(48);
   textAlign(CENTER, CENTER);
-  
-  
- 
-  
+
   
   // restart Accelerometer
   manager.restart();
@@ -136,9 +143,9 @@ void screen3(){
      background(255,255,255);
      fill(#000000);
   }
-  
-  
   text("0:"+time,0, 0, width, height);
+  
+  
   okay_button = new Button("Estoy bien", 150, 500, 200, 70);
   okay_button.buttonDraw();
   
@@ -189,17 +196,5 @@ void makeCall(){
 
 // Accelerometer Event Function
 void onAccelerometerEvent(float x, float y, float z){
-  float vx, vy, vz, v;
-  // Small correction
-  if(x == 9.7){x = 0.0;}
-  if(y == 9.7){y = 0.0;}
-  if(z == 9.7){z = 0.0;}
-  // computation of speed
-  vx = manager.speedX(x);
-  vy = manager.speedY(y);
-  vz = manager.speedX(z);
-  v = manager.speed();
-  halt = v;
-  // update speeds
-  manager.update(vx,vy,vz);
+  halt=x+y+z-9.7;
 }
