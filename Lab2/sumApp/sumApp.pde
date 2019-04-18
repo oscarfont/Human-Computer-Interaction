@@ -5,8 +5,8 @@ int firstNumber = 2;
 int secondNumber = 1;
 int result = 3;
 int sign = 0;
-boolean correctScreen = false;
 String operationString = "";
+String screen = "homeScreen";
 
 void setup() {
     size(800, 200);
@@ -17,23 +17,27 @@ void setup() {
 void draw() {
     background(255);
     textSize(32);
-    if (operation < setOperations.length) {
-        if (correctScreen) {
-            correctScreen();
-        } else {
-            switch (sign) {
-                case 0: //suma
-                    drawSum();
-                    break;
 
-                case 1: //resta
-                    drawSub();
-                    break;
-            }
-        }
-    } else {
-        text("Credits: Daniel Roig", 10, 30);
+    switch (screen) {
+        case "homeScreen":
+            homeScreen();
+            break;
+
+        case "operationScreen":
+            operationScreen();
+            break;
+
+        case "correctScreen":
+            correctScreen();
+            break;
+
+        case "creditsScreen":
+            creditsScreen();
+            break;
+
     }
+
+
 }
 
 void keyPressed() {
@@ -66,7 +70,7 @@ void drawSum() {
             fill(33, 255, 0);
             operationString = str(firstNumber) + " + " + str(value) + " = " + str(result);
             text(operationString, 10, 30);
-            correctScreen = true;
+            screen = "correctScreen";
         } else {
             fill(0, 102, 153);
             text(firstNumber + " + " + value + " = " + result, 10, 30);
@@ -85,7 +89,7 @@ void drawSub() {
             fill(33, 255, 0);
             operationString = str(firstNumber) + " - " + str(value) + " = " + str(result);
             text(operationString, 10, 30);
-            correctScreen = true;
+            screen = "correctScreen";
 
         } else {
             fill(0, 102, 153);
@@ -94,14 +98,42 @@ void drawSub() {
     }
 }
 
+void homeScreen() {
+    text("Home screen, poner intrucciones y boton start", 10, 30);
+    screen = "operationScreen";
+}
+
+void operationScreen() {
+    if (operation < setOperations.length) {
+
+        switch (sign) {
+            case 0: //suma
+                drawSum();
+                break;
+
+            case 1: //resta
+                drawSub();
+                break;
+        }
+
+    } else {
+        screen = "creditsScreen";
+    }
+}
+
+
 void correctScreen() {
     int value = numKeys();
     text(operationString + "\nCorrecto! \nSaca todas las piezas de la base", 10, 30);
 
     if (value == 0) {
-        correctScreen = false;
+        screen = "operationScreen";
         changeOperation();
     }
+}
+
+void creditsScreen() {
+    text("Credits: Daniel Roig", 10, 30);
 }
 
 void changeOperation() {
