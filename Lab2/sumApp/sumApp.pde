@@ -1,4 +1,8 @@
+import processing.sound.*;
+import java.util.Map;
+
 boolean[] keys;
+boolean start = false;
 int[][] setOperations = { {3,3,6,0}, {3,1,2,1}, {6,3,9,0}, {5,2,3,1}, {8,2,10,0} }; //Les 3 primeres xifres son els numeros de la operació, l'ultima indica si es suma 0 o resta 1
 int operation = 0;
 int firstNumber = 2;
@@ -7,11 +11,17 @@ int result = 3;
 int sign = 0;
 String operationString = "";
 String screen = "homeScreen";
+SoundManager manager;
+int initialTime;
 
 void setup() {
     size(800, 200);
     background(255);
     keys = new boolean[3];
+    manager = new SoundManager();
+    manager.addSound("correct", new SoundFile(this,"correct.mp3"));
+    manager.addSound("wrong", new SoundFile(this,"wrong.mp3"));
+    initialTime = int(millis()/1000);
     fill(0);
 }
 void draw() {
@@ -30,6 +40,10 @@ void draw() {
         case "correctScreen":
             correctScreen();
             break;
+            
+        case "wrongScreen":
+            wrongScreen();
+            break;
 
         case "creditsScreen":
             creditsScreen();
@@ -47,6 +61,9 @@ void keyPressed() {
         keys[1] = true;
     if (key == 'e')
         keys[2] = true;
+    if(key == 32){
+        start = true;
+    }
 }
 
 void keyReleased() {
@@ -73,7 +90,9 @@ void drawSum() {
             screen = "correctScreen";
         } else {
             fill(0, 102, 153);
-            text(firstNumber + " + " + value + " = " + result, 10, 30);
+            operationString = str(firstNumber) + " + " + str(value) + " = " + str(result);
+            text(operationString, 10, 30);
+            screen = "wrongScreen";
         }
     }
 }
@@ -93,14 +112,25 @@ void drawSub() {
 
         } else {
             fill(0, 102, 153);
-            text(firstNumber + " - " + value + " = " + result, 10, 30);
+            operationString = str(firstNumber) + " - " + str(value) + " = " + str(result);
+            text(operationString, 10, 30);
+            screen = "wrongScreen";
         }
     }
 }
 
 void homeScreen() {
-    text("Home screen, poner intrucciones y boton start", 10, 30);
-    screen = "operationScreen";
+    // PONER INSTRUCCIONES EN LA HOME SCREEN
+    int t = (int(millis()/1000)-initialTime);
+    if(t%2 == 0){
+       fill(#FFFFFF);
+    }else{
+       fill(#000000);
+    }
+    text("Pulsa espacio para empezar", 180, 100);
+    if(start){
+      screen = "operationScreen";
+    }
 }
 
 void operationScreen() {
@@ -124,16 +154,29 @@ void operationScreen() {
 
 void correctScreen() {
     int value = numKeys();
+    manager.playSound("correct");
     text(operationString + "\nCorrecto! \nSaca todas las piezas de la base", 10, 30);
-
+    
     if (value == 0) {
         screen = "operationScreen";
+        manager.stopSound();
         changeOperation();
     }
 }
 
+void wrongScreen() {
+    int value = numKeys();
+    manager.playSound("wrong");
+    text(operationString + "\nIncorrecto! \n¡Fíjate bien en las piezas que pones en la base!", 10, 30);
+    
+    if (value == 0) {
+        screen = "operationScreen";
+        manager.stopSound();
+    }
+}
+
 void creditsScreen() {
-    text("Credits: Daniel Roig", 10, 30);
+    text("Credits: Daniel Roig & @ofont99", 10, 30);
 }
 
 void changeOperation() {
