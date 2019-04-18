@@ -1,32 +1,32 @@
 boolean[] keys;
-int value=0;
- 
+int[][] setOperations = { {3,3,6,0}, {3,1,2,1}, {6,3,9,0}, {5,2,3,1}, {8,2,10,0} }; //Les 3 primeres xifres son els numeros de la operació, l'ultima indica si es suma 0 o resta 1
+int operation=0;
+int firstNumber=2;
+int secondNumber=1;
+int result=3;
+int sign=0;
+
  void setup(){
    size(200, 200);
    background(255);
    keys=new boolean[3];
-   keys[0]=false;
-   keys[1]=false;
    fill(0);
-   
  }
  void draw(){
    background(255);
-   value=numKeys();
    textSize(32);
-   
-   if(value==0){
-     fill(0, 102, 153);
-     text("3 + _ = 6", 10, 30); 
-   
+   if(operation<setOperations.length){
+     switch(sign){
+       case 0: //suma
+         drawSum();
+         break;
+     
+       case 1: //resta
+         drawSub();
+         break;
+   }
    }else{
-     if(value==3){
-       fill(33, 255, 0);
-       text("3 + " + value + " = 6", 10, 30); 
-     }else{
-     fill(0, 102, 153);
-     text("3 + " + value + " = 6", 10, 30);
-     } 
+     text( "Credits: Daniel Roig", 10, 30);
    }
  }
  
@@ -46,9 +46,54 @@ int value=0;
      keys[1]=false;
    if (key=='e')
      keys[2]=false;
-
- } 
-
+ }
+ 
+ void drawSum(){
+   int value=numKeys();
+   
+   if(value==0){
+     fill(0, 102, 153);
+     text( firstNumber +" + _ = "+result, 10, 30); 
+   
+   }else{
+     if(value==secondNumber){
+       fill(33, 255, 0);
+       text( firstNumber +" + "+ value +" = "+result, 10, 30);
+       changeOperation();
+     }else{
+     fill(0, 102, 153);
+     text( firstNumber +" + " + value + " = "+result, 10, 30); 
+     } 
+   }  
+ }
+ 
+ void drawSub(){
+   int value=numKeys();
+   
+   if(value==0){
+     fill(0, 102, 153);
+     text( firstNumber +" - _ = "+result, 10, 30); 
+   
+   }else{
+     if(value==secondNumber){
+       fill(33, 255, 0);
+       text( firstNumber +" - "+ value +" = "+result, 10, 30); 
+       changeOperation();
+     }else{
+     fill(0, 102, 153);
+     text( firstNumber +" - " + value + " = "+result, 10, 30); 
+     } 
+   }  
+ }
+ 
+ 
+ void changeOperation(){
+   firstNumber= setOperations[operation][0];
+   secondNumber =  setOperations[operation][1];
+   result =  setOperations[operation][2];
+   sign =  setOperations[operation][3];
+   operation++;
+ }
 
  int numKeys(){
   int num=0;
