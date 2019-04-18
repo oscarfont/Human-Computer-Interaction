@@ -9,7 +9,7 @@ boolean correctScreen = false;
 String operationString = "";
 
 void setup() {
-    size(200, 200);
+    size(800, 200);
     background(255);
     keys = new boolean[3];
     fill(0);
