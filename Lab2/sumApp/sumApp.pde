@@ -3,7 +3,7 @@ import java.util.Map;
 
 boolean[] keys;
 boolean start = false;
-int[][] setOperations = { {3,3,6,0}, {3,1,2,1}, {6,3,9,0}, {5,2,3,1}, {8,2,10,0} }; //Les 3 primeres xifres son els numeros de la operació, l'ultima indica si es suma 0 o resta 1
+int[][] setOperations = { {3,3,6,0}, {3,1,2,1}, {6,3,9,0}, {5,2,3,1},{8,2,10,0} }; //Les 3 primeres xifres son els numeros de la operació, l'ultima indica si es suma 0 o resta 1
 int operation = 0;
 int firstNumber = 2;
 int secondNumber = 1;
@@ -13,21 +13,23 @@ String operationString = "";
 String screen = "homeScreen";
 SoundManager manager;
 int initialTime;
+PImage bg;
+PFont font;
+
 
 void setup() {
-    size(800, 200);
-    background(255);
+    size(1200,700);
     keys = new boolean[3];
     manager = new SoundManager();
     manager.addSound("correct", new SoundFile(this,"correct.mp3"));
     manager.addSound("wrong", new SoundFile(this,"wrong.mp3"));
     initialTime = int(millis()/1000);
-    fill(0);
-}
+    font = createFont("orange.ttf",50);
+    bg = loadImage("board.png");
+  }
 void draw() {
-    background(255);
-    textSize(32);
-
+    textFont(font);
+    background(bg);
     switch (screen) {
         case "homeScreen":
             homeScreen();
@@ -75,20 +77,28 @@ void drawSum() {
     int value = numKeys();
 
     if (value == 0) {
-        fill(0, 102, 153);
-        text(firstNumber + " + _ = " + result, 10, 30);
+        textSize(130);
+        fill(#FFFFFF);
+        text(firstNumber + " + _ = " + result, 420, 330);
 
     } else {
         if (value == secondNumber) {
-            fill(33, 255, 0);
             operationString = str(firstNumber) + " + " + str(value) + " = " + str(result);
-            text(operationString, 10, 30);
+            text(operationString, 420, 330);
             screen = "correctScreen";
         } else {
-            fill(0, 102, 153);
             operationString = str(firstNumber) + " + " + str(value) + " = " + str(result);
-            text(operationString, 10, 30);
-            text(operationString + "\nIncorrecto! \n¡Fíjate bien en las piezas que pones en la base!", 10, 30);
+            textSize(130);
+            fill(#FFFFFF);
+            text(operationString,420,330);
+            fill(#FF1E00);
+            textSize(150);
+            text("Incorrecto!",300,450);
+            fill(#079DFF);
+            textSize(50);
+            text("¡Fíjate bien en las piezas que pones en la base!",120,540);
+            //manager.playSound("wrong");
+            //manager.stopSound();
         }
     }
 }
@@ -97,33 +107,46 @@ void drawSub() {
     int value = numKeys();
 
     if (value == 0) {
-        fill(0, 102, 153);
-        text(firstNumber + " - _ = " + result, 10, 30);
+        textSize(130);
+        fill(#FFFFFF);
+        text(firstNumber + " - _ = " + result, 420, 330);
     } else {
         if (value == secondNumber) {
-            fill(33, 255, 0);
             operationString = str(firstNumber) + " - " + str(value) + " = " + str(result);
-            text(operationString, 10, 30);
+            text(operationString, 420, 330);
             screen = "correctScreen";
 
         } else {
-            fill(0, 102, 153);
             operationString = str(firstNumber) + " - " + str(value) + " = " + str(result);
-            text(operationString, 10, 30);
-            text(operationString + "\nIncorrecto! \n¡Fíjate bien en las piezas que pones en la base!", 10, 30);
+            textSize(130);
+            fill(#FFFFFF);
+            text(operationString,420,330);
+            fill(#FF1E00);
+            textSize(150);
+            text("Incorrecto!",300,450);
+            fill(#079DFF);
+            textSize(50);
+            text("¡Fíjate bien en las piezas que pones en la base!",120,540);
+            //manager.playSound("wrong");
+            //manager.stopSound();
         }
     }
 }
 
 void homeScreen() {
     // PONER INSTRUCCIONES EN LA HOME SCREEN
+    textSize(150);
+    fill(#FFFFFF);
+    text("SumApp",320,300);
+    
     int t = (int(millis()/1000)-initialTime);
     if(t%2 == 0){
        fill(#FFFFFF);
     }else{
-       fill(#000000);
+       fill(#079DFF);
     }
-    text("Pulsa espacio para empezar", 180, 100);
+    textSize(50);
+    text("Pulsa espacio para empezar", 300, 400);
     if(start){
       screen = "operationScreen";
     }
@@ -151,7 +174,15 @@ void operationScreen() {
 void correctScreen() {
     int value = numKeys();
     manager.playSound("correct");
-    text(operationString + "\nCorrecto! \nSaca todas las piezas de la base", 10, 30);
+    textSize(130);
+    fill(#FFFFFF);
+    text(operationString,420,330);
+    fill(#46B63F);
+    textSize(150);
+    text("Correcto!",300,450);
+    fill(#079DFF);
+    textSize(60);
+    text("Saca todas las piezas de la base", 200, 550);
     
     if (value == 0) {
         screen = "operationScreen";
@@ -162,7 +193,8 @@ void correctScreen() {
 
 
 void creditsScreen() {
-    text("Credits: Daniel Roig & @ofont99", 10, 30);
+    fill(#FFFFFF);
+    text("Credits: Daniel Roig & @ofont99 \n & Estefania Cons", 150, 330);
 }
 
 void changeOperation() {
