@@ -115,7 +115,6 @@ void drawSub() {
             operationString = str(firstNumber) + " - " + str(value) + " = " + str(result);
             text(operationString, 420, 330);
             screen = "correctScreen";
-
         } else {
             operationString = str(firstNumber) + " - " + str(value) + " = " + str(result);
             textSize(130);
@@ -194,7 +193,7 @@ void correctScreen() {
 
 void creditsScreen() {
     fill(#FFFFFF);
-    text("Credits: Daniel Roig & @ofont99 \n & Estefania Cons", 150, 330);
+    text("Credits: Daniel Roig & @ofont99 \n & Estefania Cons \n & Bernabé González \n & Oriol Resina", 150, 330);
 }
 
 void changeOperation() {
