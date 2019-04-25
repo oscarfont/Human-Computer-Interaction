@@ -30,6 +30,8 @@ int lowerb = 50;
 int upperb = 100;
 Mat mask;
 
+color trackBlue = color (0,0,255);
+
 void setup() {
   size(640, 480);
   result = new PImage();     
@@ -39,7 +41,7 @@ void setup() {
   video = new Capture(this, 640/2, 480/2);
   opencv = new OpenCV(this, 640/2, 480/2);
   opencv = new OpenCV(this, video);
- 
+  
   opencv.useColor(HSB);
   
   video.start();
@@ -57,32 +59,13 @@ void draw() {
   stroke(0, 255, 0);
   strokeWeight(3);
 
-  opencv.gray();
-  opencv.threshold(70);
-
-  result = opencv.getOutput();
-  contours = opencv.findContours();
-  
-  println("found " + contours.size() + " contours");
-  
-  for (Contour contour : contours) {
-    stroke(0, 255, 0);
-    contour.draw();
-    
-    stroke(255, 0, 0);
-    beginShape();
-    for (PVector point : contour.getPolygonApproximation().getPoints()) {
-      vertex(point.x, point.y);
-    }
-    endShape();
-  }
 
   
   /*            Uncomment to debug slidebars
   print("(minH,maxH)=("+sliderMinHue+","+sliderMaxHue+") --- ");
   print("(minS,maxS)=("+sliderMinSat+","+sliderMaxSat+") ---");
   println("(minV,maxV)=("+sliderMinVal+","+sliderMaxVal+") ---");*/
-  /*
+  
   mLowerBound.val[0]= sliderMinHue;
   mUpperBound.val[0]= sliderMaxHue;
   mLowerBound.val[1]= sliderMinSat;
@@ -94,17 +77,37 @@ void draw() {
   org.opencv.core.Core.inRange(opencv.matHSV, mLowerBound, mUpperBound, mask); //image binarizarion using H,S,V channels at the same time
   
   opencv.toPImage(mask,result); 
-  opencv.loadImage(img);
   
-  image(img, 0, 0);
-  */
   //-------------------------------------------------------
   //the opencv wrapper for processing only allows to use inRange in a single channell.
   //  opencv.setGray(opencv.getH().clone());
   //  opencv.inRange(sliderMinHue, sliderMaxHue); 
   //image(opencv.getOutput(), 3*width/4, 3*height/4, width/4,height/4);
   //-------------------------------------------------------
-  //image(opencv.getSnapshot(mask), 3*width/4, 3*height/4, width/4,height/4);
+  image(opencv.getSnapshot(mask), 3*width/4, 3*height/4, width/4,height/4);
+  
+  
+    opencv.gray();
+  opencv.threshold(70);
+
+  opencv.getOutput();
+  contours = opencv.findContours();
+  
+  println("found " + contours.size() + " contours");
+  
+  for (Contour contour : contours) {
+    stroke(0, 0, 255);
+    contour.draw();
+    
+        stroke(255, 0, 0);
+
+    beginShape();
+    for (PVector point : contour.getPolygonApproximation().getPoints()) {
+      vertex(point.x, point.y);
+    }
+    endShape();
+  }
+
 }
 
 void captureEvent(Capture c) {
