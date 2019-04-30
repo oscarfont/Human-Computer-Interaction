@@ -3,24 +3,24 @@ import gab.opencv.*;
 import org.opencv.core.Mat;
 import org.opencv.core.Scalar;
 //import controlP5.*;
-// import processing.video.*;
+import processing.video.*;
 import java.awt.*;
 
 Scalar mLowerBound = new Scalar(0);
 Scalar mUpperBound = new Scalar(0);
     
 // ControlP5 cp5;
-int sliderMinHue=0;
-int sliderMaxHue=7;
-int sliderMinSat=115;
-int sliderMaxSat=130;
-int sliderMinVal=114;
-int sliderMaxVal=145;
+int sliderMinHue=100;
+int sliderMaxHue=150;
+int sliderMinSat=120;
+int sliderMaxSat=200;
+int sliderMinVal=30;
+int sliderMaxVal=200;
 PImage img;
 PImage result;
 
 OpenCV opencv;
-// Capture video;
+Capture video;
 
 ArrayList<Contour> contours;
 ArrayList<Contour> polygons;
@@ -30,26 +30,31 @@ int lowerb = 50;
 int upperb = 100;
 Mat mask;
 
+color trackBlue = color (0,0,255);
+
 void setup() {
-  size(1024, 768);
+  size(640, 480);
   result = new PImage();     
      
-  img = loadImage("sampleToClean.jpg");
+  // img = loadImage("hsv_samples.jpg");
   
-  // video = new Capture(this, 640/2, 480/2);
-  opencv = new OpenCV(this, img);
+  video = new Capture(this, 640/2, 480/2);
+  opencv = new OpenCV(this, video);
   opencv.useColor(HSB);
   
-  calculate();
+  video.start();
+  
+
 }
 
-void calculate() {
-  opencv.loadImage(img);
+void draw() {
+   scale(2);
+  opencv.loadImage(video);
 
-  image(img, 0, 0 );
+  image(video, 0, 0 );
 
   noFill();
-  // stroke(0, 255, 0);
+  stroke(0, 255, 0);
   strokeWeight(3);
 
 
@@ -75,16 +80,18 @@ void calculate() {
   //the opencv wrapper for processing only allows to use inRange in a single channell.
   //  opencv.setGray(opencv.getH().clone());
   //  opencv.inRange(sliderMinHue, sliderMaxHue); 
-  image(opencv.getSnapshot(mask), 3*width/4, 3*height/4, width/4,height/4);
+  //image(opencv.getOutput(), 3*width/4, 3*height/4, width/4,height/4);
   //-------------------------------------------------------
-//   image(opencv.getSnapshot(mask),0, 0 );
-
+  //image(opencv.getSnapshot(mask), 3*width/4, 3*height/4, width/4,height/4);
+  
     OpenCV opencv2 = new OpenCV(this, opencv.getSnapshot(mask));
 
+  
   opencv2.gray();
+  opencv2.threshold(10);
 
- opencv2.erode();
- opencv2.dilate();
+  opencv2.getOutput();
+  opencv2.erode();
   contours = opencv2.findContours();
   
   println("found " + contours.size() + " contours");
@@ -102,4 +109,8 @@ void calculate() {
     endShape();
   }
 
+}
+
+void captureEvent(Capture c) {
+  c.read();
 }
