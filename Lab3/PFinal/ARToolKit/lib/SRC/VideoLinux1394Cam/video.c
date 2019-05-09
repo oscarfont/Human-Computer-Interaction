@@ -1,11 +1,11 @@
 /*
   1394 Linux Firewire Digital Camera Interface
-  Copyright (C) 2002 - 2006
+  Copyright (c) 2002-2007
   Kiyoshi Kiyokawa (kiyo@crl.go.jp)
   Hirokazu Kato (kato@sys.im.hiroshima-cu.ac.jp)
   Wayne Piekarski (wayne@cs.unisa.edu.au)
   
-  $Id: video.c,v 1.14 2006/09/19 03:13:10 philip_lamb Exp $
+  $Id: video.c,v 1.15 2007/01/23 00:39:28 philip_lamb Exp $
   This source file is dual licensed under either the GPL or the LGPL license
   by the authors of this software.
   

@@ -61,6 +61,8 @@ char            *vconf = "-size=FULL";
 char 			*vconf = "videotestsrc";
 #  elif defined(AR_INPUT_V4L)
 char            *vconf = "-width=640 -height=480";
+#  elif defined(AR_INPUT_V4L2)
+char            *vconf = "-width=640 -height=480";
 #  elif defined(AR_INPUT_1394CAM)
 char            *vconf = "-mode=640x480_YUV411";
 #  elif defined(AR_INPUT_DV)

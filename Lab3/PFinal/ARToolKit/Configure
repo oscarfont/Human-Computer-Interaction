@@ -7,7 +7,8 @@ MDIR=". \
       lib/SRC \
       lib/SRC/AR lib/SRC/ARMulti lib/SRC/Gl \
       lib/SRC/VideoLinux1394Cam lib/SRC/VideoLinuxDV \
-      lib/SRC/VideoLinuxV4L lib/SRC/VideoSGI \
+      lib/SRC/VideoLinuxV4L lib/SRC/VideoLinuxV4L2 \
+      lib/SRC/VideoSGI \
       lib/SRC/VideoMacOSX \
       lib/SRC/VideoGStreamer \
       lib/SRC/ARvrml \
@@ -33,13 +34,28 @@ then
     echo "Select a video capture driver."
     echo "  1: Video4Linux"
     echo "  2: Video4Linux+JPEG Decompression (EyeToy)"
-    echo "  3: Digital Video Camcoder through IEEE 1394 (DV Format)"
-    echo "  4: Digital Video Camera through IEEE 1394 (VGA NONCOMPRESSED Image Format)"
-    echo "  5: GStreamer Media Framework"
+    echo "  3: Video4Linux2"
+    echo "  4: Digital Video Camcoder through IEEE 1394 (DV Format)"
+    echo "  5: Digital Video Camera through IEEE 1394 (VGA NONCOMPRESSED Image Format)"
+    echo "  6: GStreamer Media Framework"
     echo -n "Enter : "
     read ANS
     if [ "$ANS" = "1" ]
     then
+		echo
+		echo "Color conversion should use x86 assembly (choose 'n' for 64bit systems)?"
+ 		echo -n "Enter : "
+		read ANS
+		if [ "$ANS" = "y" ]
+		then
+			CCVT_OBJ="ccvt_i386.o"
+		elif [ "$ANS" = "n" ]
+		then
+			CCVT_OBJ="ccvt_c.o"
+		else
+			echo "Please enter y or n."
+			exit 0
+		fi	
         VIDEO_DRIVER="VideoLinuxV4L"
         CFLAG="-O -I/usr/X11R6/include"
         LDFLAG="-L/usr/X11R6/lib"
@@ -49,6 +65,20 @@ then
         CONFIG="AR_INPUT_V4L"
     elif [ "$ANS" = "2" ]
     then
+		echo
+		echo "Color conversion should use x86 assembly (not working for 64bit)?"
+ 		echo -n "Enter : "
+		read ANS
+		if [ "$ANS" = "y" ]
+		then
+			CCVT_OBJ="ccvt_i386.o"
+		elif [ "$ANS" = "n" ]
+		then
+			CCVT_OBJ="ccvt_c.o"
+		else
+			echo "Please enter y or n."
+			exit 0
+		fi		
         VIDEO_DRIVER="VideoLinuxV4L"
         CFLAG="-O -I/usr/X11R6/include -DUSE_EYETOY"
         LDFLAG="-L/usr/X11R6/lib"
@@ -58,6 +88,29 @@ then
         CONFIG="AR_INPUT_V4L"
     elif [ "$ANS" = "3" ]
     then
+		echo
+		echo "Color conversion should use x86 assembly (not working for 64bit)?"
+ 		echo -n "Enter : "
+		read ANS
+		if [ "$ANS" = "y" ]
+		then
+			CCVT_OBJ="ccvt_i386.o"
+		elif [ "$ANS" = "n" ]
+		then
+			CCVT_OBJ="ccvt_c.o"
+		else
+			echo "Please enter y or n."
+			exit 0
+		fi		
+        VIDEO_DRIVER="VideoLinuxV4L2"
+        CFLAG="-O -I/usr/X11R6/include -DUSE_EYETOY -I/usr/src/linux/include"
+        LDFLAG="-L/usr/X11R6/lib"
+        ARFLAG="rs"
+        RANLIB=""
+        LIBS="-lglut -lGLU -lGL -lXi -lXmu -lX11 -lm -ljpeg"
+        CONFIG="AR_INPUT_V4L2"
+    elif [ "$ANS" = "4" ]
+    then
         VIDEO_DRIVER="VideoLinuxDV"
         CFLAG="-O -I/usr/include/glib-1.2 -I/usr/lib/glib/include -I/usr/X11R6/include"
         LDFLAG="-L/usr/X11R6/lib -L/usr/local/lib"
@@ -65,7 +118,7 @@ then
         RANLIB=""
         LIBS="-lraw1394 -ldv -lpthread -lglut -lGLU -lGL -lXi -lXmu -lX11 -lm"
         CONFIG="AR_INPUT_DV"
-    elif [ "$ANS" = "4" ]
+    elif [ "$ANS" = "5" ]
     then
         VIDEO_DRIVER="VideoLinux1394Cam"
         CFLAG="-O -I/usr/X11R6/include"
@@ -74,7 +127,7 @@ then
         RANLIB=""
         LIBS="-lglut -lGLU -lGL -lXi -lXmu -lX11 -lm -lraw1394 -ldc1394_control"
         CONFIG="AR_INPUT_1394CAM"
-    elif [ "$ANS" = "5" ]
+    elif [ "$ANS" = "6" ]
     then
         VIDEO_DRIVER="VideoGStreamer"
 		GST_INCLUDE=`pkg-config --cflags gstreamer-0.10`
@@ -176,6 +229,8 @@ echo $RANLIB | sed -e 's/\//\\\//g' >$SED
 RANLIB=`cat $SED`
 echo $LIBS | sed -e 's/\//\\\//g' >$SED
 LIBS=`cat $SED`
+echo $CCVT_OBJ | sed -e 's/\//\\\//g' >$SED
+CCVT_OBJ=`cat $SED`
 
 cat > $SED <<EOF
 s/@VIDEO_DRIVER@/$VIDEO_DRIVER/
@@ -184,6 +239,7 @@ s/@LDFLAG@/$LDFLAG/
 s/@ARFLAG@/$ARFLAG/
 s/@RANLIB@/$RANLIB/
 s/@LIBS@/$LIBS/
+s/@CCVT_OBJ@/$CCVT_OBJ/
 EOF
 
 

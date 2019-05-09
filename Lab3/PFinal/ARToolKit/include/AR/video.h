@@ -1,5 +1,5 @@
 /*  --------------------------------------------------------------------------
- *	Copyright (c) 2004-2006 Philip Lamb (PRL) phil@eden.net.nz. All rights reserved.
+ *	Copyright (c) 2004-2007 Philip Lamb (PRL) phil@eden.net.nz. All rights reserved.
  * This file is part of ARToolKit.
  * 
  * ARToolKit is free software; you can redistribute it and/or modify
@@ -100,6 +100,9 @@ extern "C" {
 #ifdef __linux
 #  ifdef AR_INPUT_V4L
 #    include <AR/sys/videoLinuxV4L.h>
+#  endif
+#  ifdef AR_INPUT_V4L2
+#    include <AR/sys/videoLinuxV4L2.h>
 #  endif
 #  ifdef  AR_INPUT_DV
 #    include <AR/sys/videoLinuxDV.h>

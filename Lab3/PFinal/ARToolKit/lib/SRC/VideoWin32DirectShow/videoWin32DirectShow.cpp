@@ -31,7 +31,7 @@
 	========================================================================
  */
 /*
- *	Copyright (c) 2004-2006 Philip Lamb (PRL) phil@eden.net.nz. All rights reserved.
+ *	Copyright (c) 2004-2007 Philip Lamb (PRL) phil@eden.net.nz. All rights reserved.
  *	
  *	Rev		Date		Who		Changes
  *	2.68.2	2004-07-20	PRL		Rewrite for ARToolKit 2.68.2
@@ -155,7 +155,14 @@ AR2VideoParamT *ar2VideoOpen(char *config)
 	
 	vid->graphManager = new DSVL_VideoSource();
 	if (!config) {
-		if (FAILED(vid->graphManager->BuildGraphFromXMLString(config_default))) return(NULL);
+
+		config = getenv("ARTOOLKIT_CONFIG");
+
+		if (config == NULL) {
+			config = &config_default[0];
+		}
+		if (FAILED(vid->graphManager->BuildGraphFromXMLString(config))) return(NULL);
+
 	} else {
 		if (strncmp(config, "<?xml", 5) == 0) {
 			if (FAILED(vid->graphManager->BuildGraphFromXMLString(config))) return(NULL);

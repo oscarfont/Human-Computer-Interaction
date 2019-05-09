@@ -1,3 +1,23 @@
+/*
+ * 
+ * This file is part of ARToolKit.
+ * 
+ * ARToolKit is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ * 
+ * ARToolKit is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with ARToolKit; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ * 
+ */
+
 #include <AR/arvrml.h>
 #include "arViewer.h"
 #include <iostream>
@@ -10,6 +30,11 @@
 #endif
 #include <stdio.h>
 #include <string.h>
+
+//extern "C" {
+
+//}
+
 
 #define  AR_VRML_MAX   100
 
@@ -24,7 +49,7 @@ int arVrmlLoadFile(const char *file)
 {
   
     FILE             *fp;
-    openvrml::browser * myBrowser = 0;
+    openvrml::browser * myBrowser = NULL;
     char             buf[256], buf1[256];
     char             buf2[256];
     int              id;
@@ -40,7 +65,6 @@ int arVrmlLoadFile(const char *file)
     if( i == AR_VRML_MAX ) return -1;
     id = i;
 
-
     if( (fp=fopen(file, "r")) == NULL ) return -1;
 
     get_buff(buf, 256, fp);
@@ -52,21 +76,25 @@ int arVrmlLoadFile(const char *file)
     buf2[i+1] = '\0';
     sprintf(buf, "%s%s", buf2, buf1);
 
-    myBrowser = new openvrml::browser(std::cout, std::cerr);
-    if( !myBrowser) {fclose(fp); return -1;}
+    myBrowser = new arVrmlBrowser;
+    if (!myBrowser) {
+		fclose(fp);
+		return -1;
+	}
 
-    std::vector<std::string> uri(1, buf);
-    std::vector<std::string> parameter; 
-    myBrowser->load_url(uri, parameter);
-
-    viewer[id] = new arVrmlViewer(*myBrowser);
-    if(!viewer[id]) 
-    {
+    viewer[id] = new arVrmlViewer();
+    if (!viewer[id]) {
         delete myBrowser;
         fclose(fp);
         return -1;
     }
-    strcpy( viewer[id]->filename, buf );
+    strcpy(viewer[id]->filename, buf); // Save filename in viewer.
+	myBrowser->viewer(viewer[id]);
+	
+	std::vector<std::string> uri(1, buf);
+    std::vector<std::string> parameter; 
+    myBrowser->load_url(uri, parameter);
+	
     
     get_buff(buf, 256, fp);
     if( sscanf(buf, "%lf %lf %lf", &viewer[id]->translation[0], 

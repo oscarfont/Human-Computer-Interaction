@@ -61,8 +61,9 @@
 
 /*--------------------------------------------------------------*/
 /*                                                              */
-/*  For Linux, you should define one of below 4 input method    */
+/*  For Linux, you should define one of below 5 input method    */
 /*    AR_INPUT_V4L:       use of standard Video4Linux Library   */
+/*    AR_INPUT_V4L2:      use of standard Video4Linux2 Library  */
 /*    AR_INPUT_GSTREAMER: use of GStreamer Media Framework      */
 /*    AR_INPUT_DV:        use of DV Camera                      */
 /*    AR_INPUT_1394CAM:   use of 1394 Digital Camera            */
@@ -70,11 +71,20 @@
 /*--------------------------------------------------------------*/
 #ifdef __linux
 #undef  AR_INPUT_V4L
+#define  AR_INPUT_V4L2
 #undef  AR_INPUT_DV
 #undef  AR_INPUT_1394CAM
 #undef  AR_INPUT_GSTREAMER
 
 #  ifdef AR_INPUT_V4L
+#    ifdef USE_EYETOY
+#      define AR_DEFAULT_PIXEL_FORMAT AR_PIXEL_FORMAT_RGB
+#    else
+#      define AR_DEFAULT_PIXEL_FORMAT AR_PIXEL_FORMAT_BGR
+#    endif
+#  endif
+
+#  ifdef AR_INPUT_V4L2
 #    ifdef USE_EYETOY
 #      define AR_DEFAULT_PIXEL_FORMAT AR_PIXEL_FORMAT_RGB
 #    else
@@ -163,6 +173,17 @@
 #    define   DEFAULT_VIDEO_MODE          VIDEO_MODE_NTSC
 #  endif
 
+#  ifdef AR_INPUT_V4L2
+#    define   VIDEO_MODE_PAL              0
+#    define   VIDEO_MODE_NTSC             1
+#    define   VIDEO_MODE_SECAM            2
+#    define   DEFAULT_VIDEO_DEVICE        "/dev/video0"
+#    define   DEFAULT_VIDEO_WIDTH         640
+#    define   DEFAULT_VIDEO_HEIGHT        480
+#    define   DEFAULT_VIDEO_CHANNEL       1
+#    define   DEFAULT_VIDEO_MODE          VIDEO_MODE_NTSC
+#  endif
+
 #  ifdef AR_INPUT_DV
 /* Defines all moved into video.c now - they are not used anywhere else */
 #  endif
@@ -206,7 +227,7 @@
 
 
 /*  For NVIDIA OpenGL Driver  */
-#undef    AR_OPENGL_TEXTURE_RECTANGLE
+#define    AR_OPENGL_TEXTURE_RECTANGLE
 
 
 

@@ -3,7 +3,7 @@
  *
  *	Graphics Subroutines (Lite) for ARToolKit.
  *
- *	Copyright (c) 2003-2006 Philip Lamb (PRL) phil@eden.net.nz. All rights reserved.
+ *	Copyright (c) 2003-2007 Philip Lamb (PRL) phil@eden.net.nz. All rights reserved.
  *	
  *	Rev		Date		Who		Changes
  *  2.7.0   2003-08-13  PRL     Complete rewrite to ARToolKit-2.65 gsub.c API.
@@ -109,7 +109,7 @@
 		along with ARToolKit; if not, write to the Free Software
 		Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  
-	@copyright 2003-2006 Philip Lamb
+	@copyright 2003-2007 Philip Lamb
 	@updated 2006-05-23
  */
 
@@ -177,11 +177,10 @@ typedef struct _ARGL_CONTEXT_SETTINGS *ARGL_CONTEXT_SETTINGS_REF;
 //	Public globals.
 // ============================================================================
 
-#if defined(__APPLE__) && defined(APPLE_TEXTURE_FAST_TRANSFER)
+#if defined(__APPLE__)
 extern int arglAppleClientStorage;
 extern int arglAppleTextureRange;
-extern GLuint arglAppleTextureRangeStorageHint;
-#endif // __APPLE__ && APPLE_TEXTURE_FAST_TRANSFER
+#endif // __APPLE__
 	
 // ============================================================================
 //	Public functions.
