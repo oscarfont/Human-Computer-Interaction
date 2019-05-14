@@ -1,0 +1,4 @@
+#Wed May 15 01:12:27 CEST 2019
+base.0=/home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/build/intermediates/transforms/dexMerger/debug/70
+path.0=classes.dex
+renamed.0=classes.dex
