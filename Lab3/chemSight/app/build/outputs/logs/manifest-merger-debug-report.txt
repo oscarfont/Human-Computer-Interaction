@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:2:1-39:12
-INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:2:1-39:12
-INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:2:1-39:12
-INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:2:1-39:12
+ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:2:1-39:12
 MERGED from [com.google.android.gms:play-services-vision:15.0.0] /home/ofont99/.gradle/caches/transforms-1/files-1.1/play-services-vision-15.0.0.aar/8120c6363f406bed79bdf2b657b27564/AndroidManifest.xml:2:1-9:12
 MERGED from [com.android.support:design:27.1.1] /home/ofont99/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/e5aa5d63c134a0d58c652b9cdca2046c/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-vision-common:15.0.0] /home/ofont99/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-15.0.0.aar/d9617f944a9d5b8cf53a4e1e7d53c53b/AndroidManifest.xml:2:1-9:12
@@ -29,35 +29,35 @@ MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/ofont99/.gradle/c
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/ofont99/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/f4958077bfd5c405e112327df77068e7/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/ofont99/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/ba2b54d99041bf3ff7517638089a9333/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.0] /home/ofont99/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/1ae1c6a16466bfe4e4a749021495a400/AndroidManifest.xml:17:1-22:12
-INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:2:1-39:12
-INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:2:1-39:12
-INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:2:1-39:12
 	package
-		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:3:5-62
-		INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml
-		INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml
+		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:3:5-62
+		INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml
+		INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml
-		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:2:1-39:12
-		INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml
+		INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml
+		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:2:1-39:12
+		INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml
 	android:versionCode
-		INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml
-		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:2:1-39:12
-		INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml
+		INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml
+		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:2:1-39:12
+		INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:2:11-69
+		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:2:11-69
 	android:installLocation
-		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:4:5-35
+		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:4:5-35
 uses-feature#android.hardware.camera
-ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:6:5-60
+ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:6:5-60
 	android:name
-		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:6:19-57
+		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:6:19-57
 uses-permission#android.permission.CAMERA
-ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:8:5-65
+ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:8:5-65
 	android:name
-		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:8:22-62
+		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:8:22-62
 application
-ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:10:5-37:19
+ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:10:5-37:19
 MERGED from [com.google.android.gms:play-services-vision:15.0.0] /home/ofont99/.gradle/caches/transforms-1/files-1.1/play-services-vision-15.0.0.aar/8120c6363f406bed79bdf2b657b27564/AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-vision:15.0.0] /home/ofont99/.gradle/caches/transforms-1/files-1.1/play-services-vision-15.0.0.aar/8120c6363f406bed79bdf2b657b27564/AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-vision-common:15.0.0] /home/ofont99/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-15.0.0.aar/d9617f944a9d5b8cf53a4e1e7d53c53b/AndroidManifest.xml:7:5-20
@@ -75,61 +75,61 @@ MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/ofont99
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/ofont99/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/0258bd68b196d792e286a6a1cf622874/AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/ofont99/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/0258bd68b196d792e286a6a1cf622874/AndroidManifest.xml:9:5-20
 	android:supportsRtl
-		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:16:9-35
+		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:16:9-35
 	android:label
-		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:15:9-34
+		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:15:9-34
 	android:hardwareAccelerated
-		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:13:9-43
+		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:13:9-43
 	android:fullBackupContent
-		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:12:9-42
+		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:12:9-42
 	android:icon
-		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:14:9-36
+		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:14:9-36
 	android:allowBackup
-		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:11:9-35
+		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:11:9-35
 	android:theme
-		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:17:9-47
+		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:17:9-47
 activity#com.google.android.gms.samples.vision.ocrreader.ui.camera.FormulaActivity
-ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:18:9-72
+ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:18:9-72
 	android:name
-		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:18:19-60
+		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:18:19-60
 activity#com.google.android.gms.samples.vision.ocrreader.ui.camera.MainActivity
-ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:19:9-25:20
+ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:19:9-25:20
 	android:name
-		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:19:19-57
+		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:19:19-57
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:20:13-24:29
+ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:20:13-24:29
 action#android.intent.action.MAIN
-ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:21:17-69
+ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:21:17-69
 	android:name
-		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:21:25-66
+		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:21:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:23:17-77
+ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:23:17-77
 	android:name
-		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:23:27-74
+		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:23:27-74
 meta-data#com.google.android.gms.version
-ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:27:9-29:69
+ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:27:9-29:69
 MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/ofont99/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/725db82dc2da0d4a56571836fee09255/AndroidManifest.xml:23:9-25:69
 MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/ofont99/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/725db82dc2da0d4a56571836fee09255/AndroidManifest.xml:23:9-25:69
 	android:value
-		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:29:13-66
+		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:29:13-66
 	android:name
-		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:28:13-58
+		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:28:13-58
 meta-data#com.google.android.gms.vision.DEPENDENCIES
-ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:30:9-32:35
+ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:30:9-32:35
 	android:value
-		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:32:13-32
+		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:32:13-32
 	android:name
-		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:31:13-70
+		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:31:13-70
 activity#com.google.android.gms.samples.vision.ocrreader.OcrCaptureActivity
-ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:34:9-36:50
+ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:34:9-36:83
 	android:label
-		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:36:13-38
+		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:36:13-71
 	android:name
-		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml:35:13-47
+		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml:35:13-47
 uses-sdk
-INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml
-INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml
+INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml
+INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml
 MERGED from [com.google.android.gms:play-services-vision:15.0.0] /home/ofont99/.gradle/caches/transforms-1/files-1.1/play-services-vision-15.0.0.aar/8120c6363f406bed79bdf2b657b27564/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-vision:15.0.0] /home/ofont99/.gradle/caches/transforms-1/files-1.1/play-services-vision-15.0.0.aar/8120c6363f406bed79bdf2b657b27564/AndroidManifest.xml:5:5-44
 MERGED from [com.android.support:design:27.1.1] /home/ofont99/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/e5aa5d63c134a0d58c652b9cdca2046c/AndroidManifest.xml:20:5-44
@@ -180,16 +180,16 @@ MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/ofont99/.gradle/caches/
 MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/ofont99/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/ba2b54d99041bf3ff7517638089a9333/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.core:runtime:1.1.0] /home/ofont99/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/1ae1c6a16466bfe4e4a749021495a400/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.core:runtime:1.1.0] /home/ofont99/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/1ae1c6a16466bfe4e4a749021495a400/AndroidManifest.xml:20:5-44
-INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml
-INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml
+INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml
+INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml
-		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml
-		INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml
+		INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml
+		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml
+		INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml
-		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml
-		INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/AndroidManifest.xml
+		INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml
+		ADDED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml
+		INJECTED from /home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/AndroidManifest.xml
 activity#com.google.android.gms.common.api.GoogleApiActivity
 ADDED from [com.google.android.gms:play-services-base:15.0.1] /home/ofont99/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/b9b61c5ab75e492993c1d2afc4dfc988/AndroidManifest.xml:23:9-26:75
 	android:exported

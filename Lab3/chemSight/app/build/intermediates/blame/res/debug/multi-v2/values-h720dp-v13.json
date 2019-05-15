@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-h720dp-v13/values-h720dp-v13.xml",
+            "outputFile": "/home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-h720dp-v13/values-h720dp-v13.xml",
             "map": [
                 {
                     "source": "/home/ofont99/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/f68dde4c2958ff44be520d0ca325f6ea/res/values-h720dp-v13/values-h720dp-v13.xml",

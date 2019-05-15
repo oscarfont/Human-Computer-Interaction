@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "outputFile": "/home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
             "map": [
                 {
                     "source": "/home/ofont99/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/5c52ee7bd4e09d39f88179a76d6ed487/res/values/values.xml",
@@ -76,20 +76,20 @@
                     }
                 },
                 {
-                    "source": "/home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/res/values/dimens.xml",
+                    "source": "/home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/res/values/strings.xml",
                     "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "88,146",
-                        "endColumns": "57,55",
-                        "endOffsets": "141,197"
+                        "startLines": "9,5,4,13,12,7,11,2,3,8,6,10",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "659,347,190,877,820,525,757,55,89,609,457,709",
+                        "endColumns": "49,109,156,64,56,83,62,33,100,49,67,47",
+                        "endOffsets": "704,452,342,937,872,604,815,84,185,654,520,752"
                     },
                     "to": {
-                        "startLines": "683,684",
-                        "startColumns": "4,4",
-                        "startOffsets": "58505,58563",
-                        "endColumns": "57,55",
-                        "endOffsets": "58558,58614"
+                        "startLines": "838,859,860,861,862,863,864,865,871,872,875,876",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "68380,70971,71081,71238,71303,71360,71434,71497,72346,72447,72621,72689",
+                        "endColumns": "49,109,156,64,56,73,62,33,100,49,67,47",
+                        "endOffsets": "68425,71076,71233,71298,71355,71429,71492,71526,72442,72492,72684,72732"
                     }
                 },
                 {
@@ -201,20 +201,20 @@
                     }
                 },
                 {
-                    "source": "/home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/src/main/res/values/strings.xml",
+                    "source": "/home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/src/main/res/values/dimens.xml",
                     "from": {
-                        "startLines": "9,5,4,13,12,7,11,2,3,8,6,10",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "659,347,190,877,820,525,757,55,89,609,457,709",
-                        "endColumns": "49,109,156,64,56,83,62,33,100,49,67,47",
-                        "endOffsets": "704,452,342,937,872,604,815,84,185,654,520,752"
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "88,146",
+                        "endColumns": "57,55",
+                        "endOffsets": "141,197"
                     },
                     "to": {
-                        "startLines": "838,859,860,861,862,863,864,865,871,872,875,876",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "68380,70971,71081,71238,71303,71360,71434,71497,72346,72447,72621,72689",
-                        "endColumns": "49,109,156,64,56,73,62,33,100,49,67,47",
-                        "endOffsets": "68425,71076,71233,71298,71355,71429,71492,71526,72442,72492,72684,72732"
+                        "startLines": "683,684",
+                        "startColumns": "4,4",
+                        "startOffsets": "58505,58563",
+                        "endColumns": "57,55",
+                        "endOffsets": "58558,58614"
                     }
                 }
             ]

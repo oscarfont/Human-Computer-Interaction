@@ -21,6 +21,7 @@
         android:icon="@mipmap/icon"
         android:label="ChemSight"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/Theme.AppCompat" >
         <activity android:name="com.google.android.gms.samples.vision.ocrreader.ui.camera.FormulaActivity" />
         <activity android:name="com.google.android.gms.samples.vision.ocrreader.ui.camera.MainActivity" >
@@ -40,7 +41,7 @@
 
         <activity
             android:name="com.google.android.gms.samples.vision.ocrreader.OcrCaptureActivity"
-            android:label="Read Text" />
+            android:label="Apunta a un símbolo de un elemento químico" />
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"
             android:exported="false"

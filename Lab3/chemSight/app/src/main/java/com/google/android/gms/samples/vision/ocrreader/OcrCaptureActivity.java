@@ -122,7 +122,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                         }
                     }
                 };
-        tts = new TextToSpeech(this.getApplicationContext(), listener);
+        tts = new TextToSpeech(this, listener);
 
         // Define table elements
         // Elements Classified
@@ -251,11 +251,6 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                         RC_HANDLE_CAMERA_PERM);
             }
         };
-
-        Snackbar.make(graphicOverlay, R.string.permission_camera_rationale,
-                Snackbar.LENGTH_INDEFINITE)
-                .setAction(R.string.ok, listener)
-                .show();
     }
 
     @Override
@@ -291,6 +286,9 @@ public final class OcrCaptureActivity extends AppCompatActivity {
             String sim = randElements.get(0);
             String el = getElementfromSymbol(sim);
             String question = "¿Que símbolo se corresponde con el elemento "+el+" ?";
+            Snackbar.make(graphicOverlay, question,
+                    Snackbar.LENGTH_LONG)
+                    .show();
             System.out.println("SPEAKING!");
             tts.speak(question,TextToSpeech.QUEUE_FLUSH,null);
         }
@@ -338,6 +336,9 @@ public final class OcrCaptureActivity extends AppCompatActivity {
             String sim = randElements.get(0);
             String el = getElementfromSymbol(sim);
             String question = "¿Que símbolo se corresponde con el elemento "+el+" ?";
+            Snackbar.make(graphicOverlay, question,
+                    Snackbar.LENGTH_LONG)
+                    .show();
             System.out.println("SPEAKING!");
             tts.speak(question,TextToSpeech.QUEUE_FLUSH,null);
         }
@@ -355,6 +356,9 @@ public final class OcrCaptureActivity extends AppCompatActivity {
             String sim = randElements.get(0);
             String el = getElementfromSymbol(sim);
             String question = "¿Que símbolo se corresponde con el elemento "+el+" ?";
+            Snackbar.make(graphicOverlay, question,
+                    Snackbar.LENGTH_LONG)
+                    .show();
             System.out.println("SPEAKING!");
             tts.speak(question,TextToSpeech.QUEUE_FLUSH,null);
         }
@@ -366,6 +370,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        tts.shutdown();
         if (preview != null) {
             preview.stop();
         }
@@ -378,6 +383,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        tts.shutdown();
         if (preview != null) {
             preview.release();
         }
@@ -854,17 +860,26 @@ public final class OcrCaptureActivity extends AppCompatActivity {
             randElements.remove(element);
             if(correct == numberOfElements){
                 String nextQuestion = "Correcto! Muy bien jugado!";
+                Snackbar.make(graphicOverlay, nextQuestion,
+                        Snackbar.LENGTH_LONG)
+                        .show();
                 tts.speak(nextQuestion, TextToSpeech.QUEUE_FLUSH,null);
                 Intent MainIntent = new Intent(OcrCaptureActivity.this,MainActivity.class);
                 OcrCaptureActivity.this.startActivity(MainIntent);
             }else{
                 String simbolo = randElements.get(0);
                 String elemento = getElementfromSymbol(simbolo);
-                String nextQuestion = "Correcto! Ahora, ¿qué símbolo corresponde al elemento"+elemento+"?";
+                String nextQuestion = "Correcto! Ahora, ¿qué símbolo corresponde al elemento "+elemento+"?";
+                Snackbar.make(graphicOverlay, nextQuestion,
+                        Snackbar.LENGTH_LONG)
+                        .show();
                 tts.speak(nextQuestion, TextToSpeech.QUEUE_FLUSH,null);
             }
         }else{
             String nextQuestion = "Incorrecto! Prueba otro símbolo.";
+            Snackbar.make(graphicOverlay, nextQuestion,
+                    Snackbar.LENGTH_LONG)
+                    .show();
             tts.speak(nextQuestion, TextToSpeech.QUEUE_FLUSH,null);
         }
     }

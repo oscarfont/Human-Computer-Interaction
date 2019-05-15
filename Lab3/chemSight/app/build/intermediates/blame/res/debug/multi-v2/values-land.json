@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-land/values-land.xml",
+            "outputFile": "/home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-land/values-land.xml",
             "map": [
                 {
                     "source": "/home/ofont99/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/e5aa5d63c134a0d58c652b9cdca2046c/res/values-land/values-land.xml",

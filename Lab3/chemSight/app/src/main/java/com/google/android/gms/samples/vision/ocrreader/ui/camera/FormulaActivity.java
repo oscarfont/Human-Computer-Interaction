@@ -40,7 +40,7 @@ public class FormulaActivity extends AppCompatActivity {
                         }
                     }
                 };
-        tts = new TextToSpeech(this.getApplicationContext(), listener);
+        tts = new TextToSpeech(this, listener);
 
         validate =  findViewById(R.id.validateButton);
         validate.setOnClickListener(new View.OnClickListener() {

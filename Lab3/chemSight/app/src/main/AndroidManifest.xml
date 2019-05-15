@@ -33,7 +33,7 @@
 
         <activity
             android:name=".OcrCaptureActivity"
-            android:label="Read Text"></activity>
+            android:label="Apunta a un símbolo de un elemento químico"></activity>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-#Wed May 15 01:12:27 CEST 2019
-base.0=/home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/periodicTableApp/app/build/intermediates/transforms/dexMerger/debug/72
+#Wed May 15 01:57:45 CEST 2019
+base.0=/home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/build/intermediates/transforms/dexMerger/debug/4
 path.0=classes.dex
 renamed.0=classes.dex
