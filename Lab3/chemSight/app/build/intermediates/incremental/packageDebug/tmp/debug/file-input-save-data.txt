@@ -1,0 +1,7 @@
+#Internal package file, do not edit.
+#Wed May 15 02:02:00 CEST 2019
+0.baseType=DIRECTORY
+0.base=/home/ofont99/Universidad/Cuarto/Human-Computer-Interaction/Lab3/chemSight/app/build/intermediates/transforms/dexMerger/debug/17
+0.path=classes.dex
+0.set=DEX
+count=1
