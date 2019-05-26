@@ -12,16 +12,24 @@ int interval = 50;
 int interval2 = 2;
 String time = "10";
 int t;
-
 boolean start = false; 
 String screen = "homeScreen";
+PFont font;
+PImage bg;
+PImage heart;
+
+
 
 void setup() {
-    size(1200,700);
+    size(1100,612);
+    font = createFont("Righteous-Regular.ttf",50);
+    bg = loadImage("home4.png");
+    heart = loadImage("heart2.png");
 }
 
 void draw() {
-    background(255,255,255);
+    textFont(font);
+    background(bg);
     switch (screen) {
         case "homeScreen":
             homeScreen();
@@ -70,25 +78,39 @@ void keyReleased() {
 }
 
 void homeScreen() {
-    textSize(50);
-    fill(#000000);
-    text("Pulsa espacio para empezar", 300, 400);
-    if(start){
-      initialTime = int(millis()/1000);
-      screen = "onGame";
-    }
+  
+  textSize(110);
+  fill(#000066);
+  text("virtualMaze",235,350); 
+  int tcolor =(millis()/1000)-initialTime;
+  if(tcolor%2 == 0){
+       fill(#ff884d);
+  }else{
+       fill(#ff3333);
+  }
+  textSize(30);
+  text("Pulsa espacio para empezar", 350, 410);
+  
+  if(start){
+    initialTime = int(millis()/1000);
+    screen = "onGame";
+  }
 }
 
 void onGame() {
   t = interval-(int(millis()/1000)-initialTime);
   time = nf(t , 2);
-  
-  textSize(50);
-  fill(#000000);
-  text("0:"+time,0, 0, width, height);
+  int tcolor =(millis()/1000)-initialTime;
+  if(tcolor%2 == 0){
+      fill(#ff884d);
+  }else{
+       fill(#ff3333);
+  }
+  textSize(110);
+  text("0:"+time,420,200, width, height);
   
   for (int i=0;i<life;i++) { //Aixo molaria ferho amb imatges de 
-   text("♥", 300+i*100, 400);
+    image(heart,270+i*110, 300);
   }
   
   if(t == 0 || life == 0){
@@ -98,44 +120,52 @@ void onGame() {
 
 void youLost() {
   
-  textSize(50);
-  fill(#000000);
-  text("youLost", 300, 400);
-  text("Pulsa espacio para empezar de nuevo", 300, 500);
-  
+  textSize(90);  
+  fill(#E55233);
+  text("You Lost!",340,300);
+  textSize(35);
+  int tcolor =(millis()/1000)-initialTime;
+  if(tcolor%2 == 0){
+      fill(#ff884d);
+  }else{
+      fill(#000000);
+  }
+  text("Pulsa espacio para empezar", 310, 400);
   if(start){
     //Reinicio variables
       life=3; 
       extra_life = false;
       initialTime = int(millis()/1000);
-      
       screen = "onGame";
-    }
+   }
 }
 
 void fallingBall(){
   
-  textSize(50);
-  fill(#000000);
-  text("Has caido, aun te quedan "+ life +" vidas", 300, 400);
-  
   t = interval2-(int(millis()/1000)-initialTime2);
   time = nf(t , 2);
-
+  textSize(90);
+  fill(#E55233);
+  text("Has caido!",300,300);
+  textSize(50);
+  fill(#000000);
+  text("Aun te quedan "+ life +" vidas", 270, 400);
   if(t == 0){
     screen = "onGame";
   }
+  
 }
 
 void extraLife(){
-  textSize(50);
-  fill(#000000);
-  text("Vida extra! ♥", 300, 400);
   
+  textSize(80 );  
+  fill(#E55233);
+  text("Extra life!",350,250);
+  image(heart,430,280);
   t = interval2-(int(millis()/1000)-initialTime2);
   time = nf(t , 2);
-
   if(t == 0){
     screen = "onGame";
   }
+  
 }
