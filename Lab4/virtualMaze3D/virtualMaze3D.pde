@@ -91,10 +91,10 @@ void keyPressed() {
           screen = "winScreen";
       }
     }
-    if(!loseSound.isPlaying() || !winSound.isPlaying()){
+    //if(!loseSound.isPlaying() || !winSound.isPlaying()){A vegades va bé i altres no :(
       if(key == 32){
           start = true;
-      }
+      //}
     }
 }
 
@@ -159,8 +159,8 @@ void youLost() {
   }else{
       fill(#000000);
   }
-  if(!loseSound.isPlaying())
-    text("Pulsa espacio para empezar", 310, 400);
+  //if(!loseSound.isPlaying()) A vegades va bé i altres no :(
+  text("Pulsa espacio para empezar", 310, 400);
   if(start){
     //Reinicio variables
       life=3; 
@@ -181,7 +181,7 @@ void fallingBall(){
   textSize(50);
   fill(#000000);
   text("Aún te quedan "+ life +" vidas", 280, 400);
-  if(t == 0 && !fallSound.isPlaying()){
+  if(t == 0 /*&& !fallSound.isPlaying() A vegades va bé i altres no :(*/){
     screen = "onGame";
   }
   
@@ -207,8 +207,8 @@ void youWin(){
   }else{
     fill(#000000);
   }
-  if(!winSound.isPlaying())
-    text("Pulsa espacio para empezar", 300, 450);
+  //if(!winSound.isPlaying()) A vegades va bé i altres no :(
+  text("Pulsa espacio para empezar", 300, 450);
   if(start){
     //Reinicio variables
     life=3; 
@@ -227,7 +227,7 @@ void extraLife(){
   image(heart,430,280);
   t = interval2-(int(millis()/1000)-initialTime2);
   time = nf(t , 2);
-  if(!gainLifeSound.isPlaying()){
+  if(t == 0 /*&& !gainLifeSound.isPlaying() A vegades va bé i altres no :( */){
     screen = "onGame";
   }
   
