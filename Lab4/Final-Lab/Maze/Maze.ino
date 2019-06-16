@@ -1,16 +1,3 @@
- 
-/*
-  SerialLCD Library - Hello World
- 
- Demonstrates the use a 16x2 LCD SerialLCD driver from Seeedstudio.
- 
- This sketch prints "Hello, Seeeduino!" to the LCD
- and shows the time.
- 
- Library originally added 16 Dec. 2010
- by Jimbo.we 
- http://www.seeedstudio.com
- */
 
  /**
  * infra red : 6
@@ -21,9 +8,8 @@
  * holes: 2
  */
  
-// include the library code:
 #include <SerialLCD.h>
-#include <SoftwareSerial.h> //this is a must
+#include <SoftwareSerial.h> 
 #include <Grove_LED_Bar.h>
 
 
@@ -32,40 +18,36 @@ static int VALUE_LED = 10;
 static bool FLAG = false;
 const int TouchPin=13;
 const int holePin = 2;
+const int infrared = 6;
+const int buzzer = 7;
 int holeStatus = 0;
 int COUNTER = 6000;
 
 
-// initialize the library
-SerialLCD slcd(11,12);//this is a must, assign soft serial pins
-
+SerialLCD slcd(11,12);
 Grove_LED_Bar bar(9, 8, 0);  // Clock pin, Data pin, Orientation
 
 
 void setup() {
-  // set up
+  
   pinMode(TouchPin, INPUT);
   pinMode(holePin, INPUT);
   slcd.begin();
   bar.begin();
-  // Print a message to the LCD.
-  // slcd.print("hello, world!");
   Serial.begin(9600);
-  pinMode(6,INPUT);
-  pinMode(7, OUTPUT);
-  // digitalWrite(1, LOW);
-  // slcd.setCursor(0, 1);
-  // slcd.print(" Value : 5");
-    for (int i = VALUE+1; i  < 11; i++) {
-      bar.setLed(i, 1);  
-    }  
+  pinMode(infrared,INPUT);
+  pinMode(buzzer, OUTPUT);
+  // Turn on all the leds
+  for (int i = VALUE+1; i  < 11; i++) {
+    bar.setLed(i, 1);  
+  }  
   
 }
 
 void buzzer() {
-  digitalWrite(7, HIGH);
+  digitalWrite(buzzer, HIGH);
   delay(90);
-  digitalWrite(7, LOW);
+  digitalWrite(buzzer, LOW);
 }
 
 void gameOverLed() {
@@ -124,13 +106,11 @@ void loop() {
         VALUE_LED--;
         FLAG = false;
       }
-    }
-    else  {
+    } else {
       Serial.println("Nobody.");
       if (!FLAG) {
         FLAG = true;
         slcd.setCursor(0, 1);
-        
       }
     }
 }
