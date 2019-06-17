@@ -20,7 +20,9 @@ const int TouchPin=13;
 const int holePin = 2;
 const int infrared = 6;
 const int buzzer = 7;
+const int goalPin = 4;
 int holeStatus = 0;
+int goalStatus = 0;
 int COUNTER = 6000;
 
 
@@ -29,9 +31,10 @@ Grove_LED_Bar bar(9, 8, 0);  // Clock pin, Data pin, Orientation
 
 
 void setup() {
-  
+  buzzerOn(); 
   pinMode(TouchPin, INPUT);
   pinMode(holePin, INPUT);
+  pinMode(goalPin, INPUT);
   slcd.begin();
   bar.begin();
   Serial.begin(9600);
@@ -44,11 +47,7 @@ void setup() {
   
 }
 
-void buzzer() {
-  digitalWrite(buzzer, HIGH);
-  delay(90);
-  digitalWrite(buzzer, LOW);
-}
+
 
 void gameOverLed() {
   slcd.clear();
@@ -59,12 +58,31 @@ void gameOverLed() {
   }
 }
 
+void buzzerOn() {
+  digitalWrite(buzzer, HIGH);
+  delay(90);
+  digitalWrite(buzzer, LOW);
+}
+
 void resetGame() {
   gameOverLed();
   while (1) {
     int sensorValue = digitalRead(TouchPin);
     if(sensorValue==1) {
-      buzzer();
+      buzzerOn();
+      asm volatile ("  jmp 0");
+    }
+  }
+}
+
+void resetGameWin() {
+  for (int i = 0; i < 10; i++) {
+    bar.setLed(i, 0);  
+  }
+  buzzerOn(); 
+  while (1) {
+    int sensorValue = digitalRead(TouchPin);
+    if(sensorValue==1) {
       asm volatile ("  jmp 0");
     }
   }
@@ -75,6 +93,7 @@ void loop() {
       resetGame();
   }
     holeStatus = digitalRead(holePin);
+    goalStatus = digitalRead(goalPin);
     slcd.setCursor(0, 0);
     char cstr[16];
     itoa(COUNTER/100, cstr, 10);
@@ -84,20 +103,21 @@ void loop() {
     slcd.print(" Time : ");
     slcd.print(cstr);       
     COUNTER--;
+    /*
     if(digitalRead(6) == LOW){
       while(1){
         bar.setLed(VALUE,0);
         slcd.clear();
         slcd.print("    YOU WIN!");
         delay(3000);
-      }
-   }
+    }
+   }*/
     if(holeStatus==HIGH)  {
       Serial.println(FLAG);
       Serial.println("Somebody is here." + String(VALUE));
       if (FLAG) {
         if (VALUE == 1) {
-          buzzer();
+          buzzerOn();
           bar.setLed(VALUE,0);
           resetGame();
         }
@@ -106,7 +126,11 @@ void loop() {
         VALUE_LED--;
         FLAG = false;
       }
-    } else {
+    } else if (goalStatus==HIGH) {
+      slcd.clear();
+      slcd.print("    YOU WIN!");
+      resetGameWin();
+     } else {
       Serial.println("Nobody.");
       if (!FLAG) {
         FLAG = true;
